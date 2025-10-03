@@ -1,0 +1,5 @@
+{
+  "name": "Asistente de Diseño de Interiores IA",
+  "description": "Una aplicación de análisis visual inteligente que utiliza IA para rediseñar una habitación. Los usuarios suben una imagen de su habitación, seleccionan productos de un catálogo y la IA genera una nueva imagen con los productos integrados.",
+  "requestFramePermissions": []
+}
