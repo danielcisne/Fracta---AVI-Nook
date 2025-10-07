@@ -32,7 +32,7 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({ products, select
               `}
             >
               <img 
-                src={product.imageBase64} 
+                src={product.imageUrl} 
                 alt={product.name} 
                 className="w-full h-full object-contain" 
               />

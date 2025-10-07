@@ -63,6 +63,14 @@ const App: React.FC = () => {
       setIsLoading(false);
     }
   }, [userImage, selectedProducts]);
+
+  const handleReset = () => {
+    setUserImage(null);
+    setSelectedProducts([]);
+    setGeneratedImage(null);
+    setIsLoading(false);
+    setError(null);
+  };
   
   return (
     <div className="min-h-screen bg-gray-100 text-gray-800">
@@ -93,14 +101,25 @@ const App: React.FC = () => {
           </div>
 
           {/* Columna de Resultados */}
-          <div className="bg-white p-6 rounded-2xl shadow-lg min-h-[400px]">
+          <div className="bg-white p-6 rounded-2xl shadow-lg min-h-[400px] flex flex-col">
             <h2 className="text-2xl font-bold mb-4 text-gray-700 border-b pb-2">3. Visualiza el resultado</h2>
-            <ResultDisplay
-              originalImage={userImage?.dataUrl ?? null}
-              generatedImage={generatedImage}
-              isLoading={isLoading}
-              error={error}
-            />
+            <div className="flex-grow">
+              <ResultDisplay
+                originalImage={userImage?.dataUrl ?? null}
+                generatedImage={generatedImage}
+                isLoading={isLoading}
+                error={error}
+              />
+            </div>
+            {(generatedImage || error) && !isLoading && (
+              <button
+                onClick={handleReset}
+                className="w-full flex items-center justify-center gap-3 bg-gray-500 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-gray-600 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-gray-300 mt-4"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><polyline points="1 4 1 10 7 10"></polyline><polyline points="23 20 23 14 17 14"></polyline><path d="M20.49 9A9 9 0 0 0 7.24 2.24"></path><path d="M3.51 15A9 9 0 0 0 16.76 21.76"></path></svg>
+                <span>Nuevo Rediseño</span>
+              </button>
+            )}
           </div>
         </div>
       </main>

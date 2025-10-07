@@ -1,7 +1,7 @@
 export interface Product {
   id: number;
   name: string;
-  imageBase64: string; // Contains the full data URL (e.g., "data:image/png;base64,...")
+  imageUrl: string;
 }
 
 export interface UserImage {
