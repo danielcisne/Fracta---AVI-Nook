@@ -100,7 +100,6 @@ export const redesignRoom = async (
 
   // Step 1: Analyze the room
   const analysis = await analyzeRoomType(ai, baseImage);
-  console.log("Análisis de la habitación:", analysis);
 
   // Step 2: Build the dynamic prompt based on analysis
   let promptInstructions = `Eres un experto diseñador de interiores. Tu tarea es integrar los productos proporcionados en la imagen de la habitación del usuario de manera fotorrealista.
