@@ -1,7 +1,8 @@
 {
-  "name": "asistente-de-diseño-de-interiores-ia",
+  "name": "avi-nook",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "AI-powered interior visualization platform using Google Gemini",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "react": "^19.2.0",
+    "react": "19.2.0",
     "react-dom": "^19.2.0",
     "@google/genai": "^1.21.0"
   },
