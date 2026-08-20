@@ -55,11 +55,14 @@ const App: React.FC = () => {
     try {
       const newImage = await redesignRoom(userImage, selectedProducts);
       setGeneratedImage(newImage);
-    } catch (err)
- {
-      console.error(err);
-      setError(err instanceof Error ? err.message : 'Ocurrió un error inesperado al generar la imagen.');
-    } finally {
+  } catch (err) {
+  setError(
+    err instanceof Error
+      ? err.message
+      : 'Ocurrió un error inesperado al generar la imagen.'
+      );
+  } 
+    finally {
       setIsLoading(false);
     }
   }, [userImage, selectedProducts]);
