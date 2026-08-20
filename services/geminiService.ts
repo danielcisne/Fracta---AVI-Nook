@@ -1,8 +1,8 @@
 import { GoogleGenAI, Modality, Type } from "@google/genai";
 import type { UserImage, Product } from '../types';
 
-// Helper function to fetch an image from a URL and convert it to a base64 string and mime type.
-// This relies on the image server having the correct CORS policy.
+// Fetches a catalog image and converts it to inline data for the Gemini API.
+// The source server must allow cross-origin requests from the application.
 const imageUrlToInlineData = async (url: string): Promise<{ data: string; mimeType: string }> => {
   try {
     // Add a cache-busting query parameter to bypass browser caches for CORS policies.
