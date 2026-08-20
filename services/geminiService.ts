@@ -186,6 +186,6 @@ export const redesignRoom = async (
        if (error instanceof Error && error.message.includes('URL')) {
          throw new Error("No se pudo cargar una imagen de producto. Verifique que las URLs del catálogo sean correctas y públicamente accesibles.");
       }
-      throw new Error("No se pudo conectar con el servicio de IA. Por favor, compruebe la configuración de su API Key y vuelva a intentarlo.");
+      throw new Error("No fue posible generar la visualización en este momento. Por favor, inténtelo de nuevo.");
   }
 };
