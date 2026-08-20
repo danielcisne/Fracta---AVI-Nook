@@ -43,7 +43,6 @@ interface RoomAnalysis {
     mainFurniture: 'cama' | 'sofa' | 'sillon' | 'otro';
 }
 
-// 1. Function to analyze the room
 const analyzeRoomType = async (ai: GoogleGenAI, baseImage: UserImage): Promise<RoomAnalysis> => {
     try {
         const response = await ai.models.generateContent({
@@ -91,17 +90,16 @@ const analyzeRoomType = async (ai: GoogleGenAI, baseImage: UserImage): Promise<R
 }
 
 
-// 2. Main function updated to use the analysis
 export const redesignRoom = async (
   baseImage: UserImage,
   selectedProducts: Product[],
 ): Promise<string> => {
   const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
-  // Step 1: Analyze the room
+  // Analyze the room to determine placement context.
   const analysis = await analyzeRoomType(ai, baseImage);
 
-  // Step 2: Build the dynamic prompt based on analysis
+  // Build placement instructions based on the detected room context.
   let promptInstructions = `Eres un experto diseñador de interiores. Tu tarea es integrar los productos proporcionados en la imagen de la habitación del usuario de manera fotorrealista.
   
   Reglas estrictas:
@@ -161,7 +159,7 @@ export const redesignRoom = async (
     ...productParts
   ];
 
-  // Step 3: Generate the final image with the specific prompt
+  // Generate the final visualization using the original room and selected products.
   try {
     const response = await ai.models.generateContent({
       model: 'gemini-2.5-flash-image',
